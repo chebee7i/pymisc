@@ -86,6 +86,7 @@ def to_mma(x):
         return '{' + ','.join(map(str, x)) + '}'
 
     out = "{" + ',\n'.join(rows) + "}"
+    out = out.replace('e', '*^')
     return out
 
 def from_mma(x):
