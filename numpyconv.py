@@ -73,7 +73,7 @@ def from_str(s):
         a = from_repr(s)
     return a
 
-def to_mma(x):
+def to_mma(x, exact=True, tol=1e-6):
     """
     Convert an array to Mathematica.
 
@@ -83,6 +83,11 @@ def to_mma(x):
         for row in x:
             rows.append(to_mma(row))
     else:
+        if exact:
+            from functools import partial
+            import dit.math
+            f = partial(dit.math.approximate_fraction, e=tol)
+            x = map(f, x)
         return '{' + ','.join(map(str, x)) + '}'
 
     out = "{" + ',\n'.join(rows) + "}"
