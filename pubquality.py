@@ -25,7 +25,7 @@ def pubquality(fig_width_pt=246.0, cm=True):
     params = {'backend': 'pdf',
               'axes.titlesize': 10,
               'axes.labelsize': 8,
-              'text.fontsize': 8,
+              'font.size': 8,
               'legend.fontsize': 8,
               'legend.handlelength': 2,
               'xtick.labelsize': 8,
